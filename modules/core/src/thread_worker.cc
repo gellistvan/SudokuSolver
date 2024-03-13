@@ -10,7 +10,7 @@ namespace sudoku::core
   void worker_function()
   {
     std::cout << "Thread started [" <<std::this_thread::get_id() << "]" <<std::endl;
-    
+
     while (SudokuContext::running)
     {
       std::unique_lock<std::mutex> lock(SudokuContext::game_tree_mutex);

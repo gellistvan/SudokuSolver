@@ -5,8 +5,6 @@
 #include <iostream>
 
 #include <map>
-#include <type_traits>
-
 
 namespace sudoku::common
 {
@@ -34,7 +32,7 @@ namespace sudoku::common
       }
     }
   }
-
+  //-----------------------------------------------------
   void Game::PrintMap()
   {
     for (uint8_t r_index = 0U; r_index < 9U; ++r_index)
@@ -60,7 +58,7 @@ namespace sudoku::common
     }
     std::cout << "+---+---+---+\n";
   }
-
+  //-----------------------------------------------------
   bool Game::CheckSecured()
   {
     bool changed = false;
@@ -85,7 +83,7 @@ namespace sudoku::common
 
     return changed;
   }
-
+  //-----------------------------------------------------
   bool Game::CheckCoordinates(const std::vector<std::pair<uint8_t, uint8_t>>& p_coordinates )
   {
     bool changed = false;
@@ -111,7 +109,7 @@ namespace sudoku::common
         }
       }
     }
-
+    //-----------------------------------------------------
     for (uint8_t value = 0U; value < 9U; ++value)
     {
       if(counts[value] == 1)
@@ -124,7 +122,7 @@ namespace sudoku::common
 
     return changed;
   }
-
+  //-----------------------------------------------------
   bool Game::CheckRows()
   {
     bool changed = false;
@@ -143,7 +141,7 @@ namespace sudoku::common
     }
     return changed;
   }
-
+  //-----------------------------------------------------
   bool Game::CheckCols()
   {
     bool changed = false;
@@ -162,7 +160,7 @@ namespace sudoku::common
     }
     return changed;
   }
-
+  //-----------------------------------------------------
   bool Game::CheckSqueres()
   {
     bool changed = false;
@@ -185,7 +183,7 @@ namespace sudoku::common
     return changed;
 
   }
-
+  //-----------------------------------------------------
   bool Game::Finished() const
   {
     for (const auto& row : data)
@@ -200,7 +198,7 @@ namespace sudoku::common
     }
     return true;
   }
-
+  //-----------------------------------------------------
   bool Game::Solvable () const
   {
     for (const auto& row : data)
@@ -215,7 +213,7 @@ namespace sudoku::common
     }
     return true;
   }
-
+  //-----------------------------------------------------
   void Game::DoDeterministicSteps()
   {
     bool changed;
@@ -247,7 +245,7 @@ namespace sudoku::common
 
     } while(changed);
   }
-
+  //-----------------------------------------------------
   std::tuple<CoordinateType, CoordinateType, std::vector<CoordinateType>> Game::FindFewestFreedomDegrees() const
   {
     CoordinateType min_x, min_y;

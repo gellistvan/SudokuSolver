@@ -63,7 +63,7 @@ ParsedParams ParseParams(int argc, char** argv)
 
   return l_result;
 }
-
+//-----------------------------------------------------
 sudoku::common::Game InitializeGame(const std::string& file_path)
 {
   auto lines = sudoku::common::ReadLinesFromFile(file_path);
@@ -86,7 +86,7 @@ sudoku::common::Game InitializeGame(const std::string& file_path)
 
   return game;
 }
-
+//-----------------------------------------------------
 int main(int argc, char** argv)
 {
   auto params = ParseParams(argc, argv);
